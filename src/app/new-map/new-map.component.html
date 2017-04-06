@@ -13,7 +13,9 @@
   </ul>
 </ul>-->
 
-<h1> {{user.name}}</h1>
+
+<div *ngFor="let user of user">
+  <h1> {{user.name}}</h1>
 <ul>
   <li>{{user.address.street}}</li>
   <ul>
@@ -24,3 +26,4 @@
     <li>Lng: {{user.address.longitude}}</li>
   </ul>
 </ul>
+</div>

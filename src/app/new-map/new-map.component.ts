@@ -17,7 +17,8 @@ export class NewMapComponent implements OnInit {
   lat: number;
   lng: number;
 
-user:User
+users:User[]
+use:User
   // address: Address;
   // address: Observable<Address>;
   // address: Observable<any>;
@@ -52,26 +53,47 @@ user:User
     this.api.getAllAddress()
       .do(console.log)
       .subscribe(
-      user => this.user = user,
-      () => console.log(this.user)
+      users => this.users = users,
+      () => console.log(this.users)
       )
-     this.findAddress();
+    //  this.findAddress();
   }
 
-  findAddress() {
-    this._map.getLatLan(this.user.address)
-      .subscribe(
-      result => {
-        this._zone.run(() => {
-          this.user.address.latitude = result.lat();
-          console.log('new lat: ', this.user.address.latitude);
-          this.user.address.longitude = result.lng();
-          console.log('new lng: ', this.user.address.longitude);
-        });
-      },
-      error => console.log(error),
-      () => console.log('Geocoding Done')
-      );
+  // findAddress() {
+  //   let user = this.user
+  //   this._map.getLatLan()
+  //     .subscribe(
+  //     result => {
+  //       this._zone.run(() => {
+  //         this.users.address.latitude = result.lat();
+  //         console.log('new lat: ', this.users.address.latitude);
+  //         this.users.address.longitude = result.lng();
+  //         console.log('new lng: ', this.users.address.longitude);
+  //       });
+  //     },
+  //     error => console.log(error),
+  //     () => console.log('Geocoding Done')
+  //     );
+
+
+    //   this.user.forEach(user => {
+    //   console.log('before user', user)
+    //   this._map.getLatLan(user.address)
+    //     .subscribe(
+    //     result => {
+    //       this._zone.run(() => {
+    //         user.address.latitude = result.lat();
+    //         console.log('new lat: ', user.address.latitude);
+    //         user.address.longitude = result.lng();
+    //         console.log('new lng: ', user.address.longitude);
+    //       });
+    //     },
+    //     error => console.log(error),
+    //     () => console.log('Geocoding Done')
+    //     );
+    //   return user;
+    // }
+    // )
 
   }
-}
+

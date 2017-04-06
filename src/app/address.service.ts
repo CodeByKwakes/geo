@@ -16,19 +16,38 @@ export class AddressService {
   //   street: '1045 mission street',
   //   town: 'san francisco',
   // }];
-  user: User = {
-    name: 'Kwakes',
-    address: {
-      street: '145 Manor Way',
-      town: 'mitcham',
-      county: 'surrey',
-      postcode: 'cr4 1ej',
+  // user: User = {
+  //   name: 'Kwakes',
+  //   address: {
+  //     street: '145 Manor Way',
+  //     town: 'mitcham',
+  //     county: 'surrey',
+  //     postcode: 'cr4 1ej',
+  //   }
+  // }
+
+  user: User[] = [
+    {
+      name: 'Kwakes',
+      address: {
+        street: '145 Manor Way',
+        town: 'mitcham',
+        county: 'surrey',
+        postcode: 'cr4 1ej',
+      }
+    },
+    {
+      name: 'Joe',
+      address: {
+        street: '1045 mission street',
+        town: 'san francisco'
+      }
     }
-  }
+  ]
 
   constructor() { }
 
-  getAllAddress(): Observable<User> {
+  getAllAddress(): Observable<User[]> {
     return Observable.of(this.user)
   }
 }
