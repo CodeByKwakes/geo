@@ -1,5 +1,5 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { Address } from '../address';
+import { Address, User } from '../address';
 import { MapService } from '../map.service';
 import { Observable } from 'rxjs/Observable';
 import { AddressService } from '../address.service';
@@ -17,7 +17,8 @@ export class NewMapComponent implements OnInit {
   lat: number;
   lng: number;
 
-  address: Address;
+user:User
+  // address: Address;
   // address: Observable<Address>;
   // address: Observable<any>;
   // address: Address = {
@@ -51,21 +52,21 @@ export class NewMapComponent implements OnInit {
     this.api.getAllAddress()
       .do(console.log)
       .subscribe(
-      address => this.address = address,
-      () => console.log(this.address)
+      user => this.user = user,
+      () => console.log(this.user)
       )
      this.findAddress();
   }
 
   findAddress() {
-    this._map.getLatLan(this.address)
+    this._map.getLatLan(this.user.address)
       .subscribe(
       result => {
         this._zone.run(() => {
-          this.address.latitude = result.lat();
-          console.log('new lat: ', this.address.latitude);
-          this.address.longitude = result.lng();
-          console.log('new lng: ', this.address.longitude);
+          this.user.address.latitude = result.lat();
+          console.log('new lat: ', this.user.address.latitude);
+          this.user.address.longitude = result.lng();
+          console.log('new lng: ', this.user.address.longitude);
         });
       },
       error => console.log(error),
