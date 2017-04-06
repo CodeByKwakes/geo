@@ -6,7 +6,7 @@ import { Address } from './address';
 
 @Injectable()
 export class AddressService {
-  //   address: Address[] = [{
+  // address: Address[] = [{
   //   street: '145 Manor Way',
   //   town: 'mitcham',
   //   county: 'surrey',

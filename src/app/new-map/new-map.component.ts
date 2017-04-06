@@ -4,6 +4,8 @@ import { MapService } from '../map.service';
 import { Observable } from 'rxjs/Observable';
 import { AddressService } from '../address.service';
 
+import 'rxjs/add/operator/do';
+
 @Component({
   selector: 'app-new-map',
   templateUrl: './new-map.component.html',
@@ -15,13 +17,15 @@ export class NewMapComponent implements OnInit {
   lat: number;
   lng: number;
 
-  // address: Address;
-  address: Address = {
-    street: '145 Manor Way',
-    town: 'mitcham',
-    county: 'surrey',
-    postcode: 'cr4 1ej',
-  };
+  address: Address;
+  // address: Observable<Address>;
+  // address: Observable<any>;
+  // address: Address = {
+  //   street: '145 Manor Way',
+  //   town: 'mitcham',
+  //   county: 'surrey',
+  //   postcode: 'cr4 1ej',
+  // };
   // address: Address;
   //   address: Address[] = [{
   //   street: '145 Manor Way',
@@ -34,18 +38,23 @@ export class NewMapComponent implements OnInit {
   //   town: 'san francisco',
   // }];
 
+
   constructor(private _map: MapService, private _zone: NgZone, private api: AddressService) { }
 
   ngOnInit() {
-    this.findAddress()
-    // this.getPlaces();
+    // this.findAddress()
+    this.getPlaces();
   }
 
   getPlaces() {
+
     this.api.getAllAddress()
+      .do(console.log)
       .subscribe(
       address => this.address = address,
-    );
+      () => console.log(this.address)
+      )
+     this.findAddress();
   }
 
   findAddress() {
