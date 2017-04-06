@@ -1,6 +1,13 @@
 <p>
   geo works!
 </p>
-{{address.street}}
-lat: {{latitude}}
-lng: {{longitude}}
+
+<p>{{address.street}}</p>
+<p>{{address.town | titlecase}}</p>
+<p>{{address.county | titlecase}}</p>
+<p>{{address.postcode | uppercase}}</p>
+
+<p>{{address.longitude }}</p>
+<hr>
+<p>lat: {{latitude}}</p>
+<p>lng: {{longitude}}</p>

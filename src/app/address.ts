@@ -5,11 +5,10 @@ export class User {
 }
 
 export class Address {
-    // long_name?: string;
     street?: string;
     town?: string;
     county?: string;
     postcode?: string;
-    // latitude?: number;
-    // longitude?: number;
+    latitude?: number;
+    longitude?: number;
 }
