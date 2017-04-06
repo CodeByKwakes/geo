@@ -8,6 +8,7 @@ import { GeoComponent } from './geo/geo.component';
 import { AddressComponent } from './address/address.component';
 import { MapService } from './map.service';
 import { NewMapComponent } from './new-map/new-map.component';
+import { AddressService } from './address.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { NewMapComponent } from './new-map/new-map.component';
     FormsModule,
     HttpModule
   ],
-  providers: [MapService],
+  providers: [MapService, AddressService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
