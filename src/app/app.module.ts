@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { GeoComponent } from './geo/geo.component';
+import { AddressComponent } from './address/address.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GeoComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
